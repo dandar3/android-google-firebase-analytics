@@ -14,8 +14,8 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.google.android.gms.measurement"
-    android:versionCode="1026"
-    android:versionName="10.2.6">
+    android:versionCode="1100"
+    android:versionName="11.0.0">
     <uses-sdk android:minSdkVersion="14"/>
 
     <!-- Required permission for App measurement to run. -->
@@ -26,11 +26,12 @@
     <application>
       <receiver android:name="com.google.android.gms.measurement.AppMeasurementReceiver" android:enabled="true" android:exported="false">
       </receiver>
-      <receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true">
+      <receiver android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver" android:permission="android.permission.INSTALL_PACKAGES" android:enabled="true" android:exported="true">
           <intent-filter>
               <action android:name="com.android.vending.INSTALL_REFERRER"/>
           </intent-filter>
       </receiver>
       <service android:name="com.google.android.gms.measurement.AppMeasurementService" android:enabled="true" android:exported="false"/>
+      <service android:name="com.google.android.gms.measurement.AppMeasurementJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false"/>
     </application>
 </manifest>
